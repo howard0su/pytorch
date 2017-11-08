@@ -5,7 +5,6 @@
 #include "THCSortUtils.cuh"
 #include "THCScanUtils.cuh"
 
-#if CUDA_HALF_TENSOR
 struct ThrustHalfLess
 {
   __host__ __device__ inline bool operator()(const half& lhs, const half& rhs) {
@@ -36,7 +35,6 @@ struct ThrustHalfEqualToPredicate
 
   half val_;
 };
-#endif
 
 template <typename T>
 struct BinaryAddOp {

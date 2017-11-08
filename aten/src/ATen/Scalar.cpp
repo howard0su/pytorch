@@ -45,7 +45,6 @@ template<> bool overflows<Half, int64_t>(int64_t f) {
 
 
 #ifdef AT_CUDA_ENABLED
-#if CUDA_HALF_TENSOR
 template<> half convert(double d) {
 
 #if CUDA_VERSION < 9000
@@ -56,7 +55,6 @@ template<> half convert(double d) {
   return half {raw};
 #endif
 }
-#endif
 #endif
 
 }
