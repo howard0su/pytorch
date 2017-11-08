@@ -1,3 +1,4 @@
+#if CUDART_VERSION >= 7000
 #include "torch/csrc/jit/fusion_compiler.h"
 #include "torch/csrc/jit/ir.h"
 #include "torch/csrc/jit/code_template.h"
@@ -481,3 +482,4 @@ FusionCompiler & sharedFusionCompiler() {
 }
 
 }}
+#endif
