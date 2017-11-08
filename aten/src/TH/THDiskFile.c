@@ -2,6 +2,7 @@
 #include "THDiskFile.h"
 #include "THFilePrivate.h"
 
+#include <sys/types.h>
 #include <stdint.h>
 #include <stdio.h>
 #ifndef LLONG_MAX

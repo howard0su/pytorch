@@ -1,6 +1,7 @@
 #include "THMemoryFile.h"
 #include "THFilePrivate.h"
-#include "stdint.h"
+#include <sys/types.h>
+#include <stdint.h>
 
 typedef struct THMemoryFile__
 {
