@@ -13,6 +13,8 @@ from code_template import CodeTemplate
 
 
 parser = OptionParser()
+parser.add_option('-v', '--cuda-version', help='cuda major version number',
+                  action='store', default='7')
 parser.add_option('-s', '--source-path', help='path to source director for tensorlib',
                   action='store', default='.')
 parser.add_option('-o', '--output-dependencies',
@@ -76,9 +78,11 @@ scalar_types = [
     ('Float', 'float', 'Double', 'float'),
     ('Int', 'int', 'Long', 'int32_t'),
     ('Long', 'int64_t', 'Long', 'int64_t'),
-    ('Short', 'int16_t', 'Long', 'int16_t'),
-    ('Half', 'Half', 'Double', 'THHalf'),
+    ('Short', 'int16_t', 'Long', 'int16_t')
 ]
+
+if int(options.cuda_version) >= 7:
+    scalar_types += [('Half', 'Half', 'Double', 'THHalf')]
 
 # shared environment for non-derived base classes Type.h Tensor.h Storage.h
 top_env = {

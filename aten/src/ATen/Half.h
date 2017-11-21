@@ -7,7 +7,15 @@
 #ifdef AT_CUDA_ENABLED
 #include <cuda.h>
 #include <cuda_runtime.h>
+#ifdef CUDA_HALF_TENSOR
 #include <cuda_fp16.h>
+#else
+typedef struct __align__(2) {
+   unsigned short x;
+} __half;
+
+typedef __half half;
+#endif
 #endif
 
 namespace at {
